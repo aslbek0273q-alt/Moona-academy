@@ -1,0 +1,923 @@
+<!--
+
+                            Online HTML Compiler.
+                Code, Compile, Run and Debug HTML program online.
+Write your code in this editor and press "Run" button to execute it.
+
+-->
+
+<html>
+  <body>
+  <h1></h1>
+  </body>
+  </html><!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IT Academy | Zamonaviy O‘quv Markazi</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #071a35;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(5, 20, 45, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #38bdf8;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #38bdf8;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 7% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background:
+                radial-gradient(circle at 80% 30%, rgba(14,165,233,0.25), transparent 35%),
+                linear-gradient(135deg, #06152d, #0b2d5c);
+        }
+
+        .hero-text {
+            max-width: 650px;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(40px, 6vw, 70px);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-text h1 span {
+            color: #38bdf8;
+        }
+
+        .hero-text p {
+            font-size: 19px;
+            color: #cbd5e1;
+            margin-bottom: 35px;
+            max-width: 600px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: #0ea5e9;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            border: 1px solid #38bdf8;
+            color: #38bdf8;
+        }
+
+        .btn-secondary:hover {
+            background: #38bdf8;
+            color: #071a35;
+        }
+
+        /* CODE BOX */
+        .code-box {
+            width: 450px;
+            max-width: 100%;
+            background: #020817;
+            border-radius: 18px;
+            padding: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            border: 1px solid #164e78;
+        }
+
+        .dots {
+            display: flex;
+            gap: 7px;
+            margin-bottom: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .red { background: #ef4444; }
+        .yellow { background: #eab308; }
+        .green { background: #22c55e; }
+
+        .code {
+            color: #7dd3fc;
+            font-family: monospace;
+            font-size: 15px;
+        }
+
+        .code .purple {
+            color: #c084fc;
+        }
+
+        .code .green-text {
+            color: #86efac;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 90px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .section-title p {
+            color: #94a3b8;
+        }
+
+        /* COURSES */
+        .courses {
+            background: #081f3d;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .course-card {
+            background: #0b294e;
+            padding: 30px;
+            border-radius: 18px;
+            border: 1px solid #164e78;
+            transition: 0.3s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            border-color: #38bdf8;
+            box-shadow: 0 15px 40px rgba(14,165,233,0.15);
+        }
+
+        .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(56,189,248,0.12);
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .course-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .course-info {
+            display: flex;
+            justify-content: space-between;
+            color: #38bdf8;
+            font-size: 14px;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #b6c2d1;
+            margin-bottom: 20px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            background: #0b294e;
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid #164e78;
+        }
+
+        .feature strong {
+            display: block;
+            color: #38bdf8;
+            margin-bottom: 5px;
+        }
+
+        .feature span {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        /* WORKING HOURS */
+        .schedule {
+            background: #06152d;
+        }
+
+        .schedule-box {
+            max-width: 900px;
+            margin: auto;
+            background: #0b294e;
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid #164e78;
+        }
+
+        .schedule-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 18px 5px;
+            border-bottom: 1px solid #164e78;
+        }
+
+        .schedule-row:last-child {
+            border-bottom: none;
+        }
+
+        .day {
+            color: white;
+            font-weight: bold;
+        }
+
+        .time {
+            color: #38bdf8;
+            font-weight: bold;
+        }
+
+        .closed {
+            color: #f87171;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: #081f3d;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info {
+            background: #0b294e;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #164e78;
+        }
+
+        .contact-info h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 18px 0;
+            color: #cbd5e1;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #38bdf8;
+        }
+
+        form {
+            background: #0b294e;
+            padding: 35px;
+            border-radius: 18px;
+            border: 1px solid #164e78;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #24577e;
+            background: #071a35;
+            color: white;
+            outline: none;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #38bdf8;
+        }
+
+        textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        form button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #0ea5e9;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        form button:hover {
+            background: #0284c7;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #020817;
+            padding: 35px 7%;
+            text-align: center;
+            color: #64748b;
+        }
+
+        footer strong {
+            color: #38bdf8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                position: relative;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding-top: 70px;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-box {
+                padding: 20px;
+            }
+
+            .schedule-row {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">IT<span>ACADEMY</span></div>
+
+        <ul>
+            <li><a href="#home">Bosh sahifa</a></li>
+            <li><a href="#courses">Kurslar</a></li>
+            <li><a href="#about">Biz haqimizda</a></li>
+            <li><a href="#schedule">Ish vaqti</a></li>
+            <li><a href="#contact">Aloqa</a></li>
+        </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+            <h1>
+                Kelajagingizni
+                <span>IT</span> bilan yarating
+            </h1>
+
+            <p>
+                Zamonaviy IT texnologiyalarini professional ustozlardan
+                o‘rganing. Dasturlash, dizayn, sun’iy intellekt va boshqa
+                yo‘nalishlarda bilim va amaliy ko‘nikmalarga ega bo‘ling.
+            </p>
+
+            <div class="buttons">
+                <a href="#courses" class="btn btn-primary">
+                    Kurslarni ko‘rish
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Bog‘lanish
+                </a>
+            </div>
+        </div>
+
+
+        <div class="code-box">
+
+            <div class="dots">
+                <div class="dot red"></div>
+                <div class="dot yellow"></div>
+                <div class="dot green"></div>
+            </div>
+
+            <div class="code">
+                <span class="purple">const</span>
+                student = {<br><br>
+
+                &nbsp;&nbsp;name:
+                <span class="green-text">"Sizning ismingiz"</span>,<br>
+
+                &nbsp;&nbsp;course:
+                <span class="green-text">"Web Development"</span>,<br>
+
+                &nbsp;&nbsp;goal:
+                <span class="green-text">"Professional IT"</span>,<br>
+
+                &nbsp;&nbsp;success:
+                <span class="green-text">true</span><br>
+
+                };<br><br>
+
+                <span class="purple">console</span>.log(
+                <span class="green-text">
+                    "Kelajak sari!"
+                </span>);
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- COURSES -->
+    <section class="courses" id="courses">
+
+        <div class="section-title">
+            <h2>Bizning kurslar</h2>
+            <p>IT sohasidagi eng kerakli yo‘nalishlarni o‘rganing</p>
+        </div>
+
+
+        <div class="course-grid">
+
+            <div class="course-card">
+                <div class="icon">💻</div>
+                <h3>Web Development</h3>
+                <p>
+                    HTML, CSS, JavaScript va zamonaviy web texnologiyalarni
+                    noldan o‘rganing.
+                </p>
+
+                <div class="course-info">
+                    <span>⏱ 6 oy</span>
+                    <span>📚 Boshlang‘ich</span>
+                </div>
+            </div>
+
+
+            <div class="course-card">
+                <div class="icon">🐍</div>
+                <h3>Python</h3>
+                <p>
+                    Python dasturlash tilini o‘rganib, real loyihalar
+                    yaratishni boshlang.
+                </p>
+
+                <div class="course-info">
+                    <span>⏱ 5 oy</span>
+                    <span>📚 Boshlang‘ich</span>
+                </div>
+            </div>
+
+
+            <div class="course-card">
+                <div class="icon">🎨</div>
+                <h3>UI/UX Design</h3>
+                <p>
+                    Zamonaviy va qulay interfeyslarni yaratish hamda
+                    dizayn asoslarini o‘rganing.
+                </p>
+
+                <div class="course-info">
+                    <span>⏱ 4 oy</span>
+                    <span>📚 Boshlang‘ich</span>
+                </div>
+            </div>
+
+
+            <div class="course-card">
+                <div class="icon">🤖</div>
+                <h3>Sun’iy intellekt</h3>
+                <p>
+                    AI texnologiyalari, Machine Learning va zamonaviy
+                    sun’iy intellekt vositalari bilan tanishing.
+                </p>
+
+                <div class="course-info">
+                    <span>⏱ 6 oy</span>
+                    <span>📚 O‘rta</span>
+                </div>
+            </div>
+
+
+            <div class="course-card">
+                <div class="icon">📱</div>
+                <h3>Mobile Development</h3>
+                <p>
+                    Android va iOS uchun zamonaviy mobil ilovalar
+                    yaratishni o‘rganing.
+                </p>
+
+                <div class="course-info">
+                    <span>⏱ 6 oy</span>
+                    <span>📚 O‘rta</span>
+                </div>
+            </div>
+
+
+            <div class="course-card">
+                <div class="icon">🔐</div>
+                <h3>Cyber Security</h3>
+                <p>
+                    Kiberxavfsizlik asoslari va axborotlarni himoya qilish
+                    usullarini o‘rganing.
+                </p>
+
+                <div class="course-info">
+                    <span>⏱ 6 oy</span>
+                    <span>📚 O‘rta</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="about">
+
+            <div class="about-text">
+
+                <h2>Nima uchun IT Academy?</h2>
+
+                <p>
+                    IT Academy — zamonaviy IT kasblarini o‘rganishni
+                    istaganlar uchun tashkil etilgan o‘quv markazi.
+                </p>
+
+                <p>
+                    Bizning maqsadimiz — o‘quvchilarga nazariy bilim bilan
+                    birga amaliy ko‘nikmalar berish va ularni IT sohasida
+                    rivojlanishga tayyorlash.
+                </p>
+
+                <div class="features">
+
+                    <div class="feature">
+                        <strong>01</strong>
+                        <span>Malakali ustozlar</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>02</strong>
+                        <span>Amaliy mashg‘ulotlar</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>03</strong>
+                        <span>Zamonaviy dasturlar</span>
+                    </div>
+
+                    <div class="feature">
+                        <strong>04</strong>
+                        <span>Real loyihalar</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="code-box">
+
+                <div class="dots">
+                    <div class="dot red"></div>
+                    <div class="dot yellow"></div>
+                    <div class="dot green"></div>
+                </div>
+
+                <div class="code">
+
+                    <span class="purple">function</span>
+                    <span class="green-text">success</span>() {<br>
+
+                    &nbsp;&nbsp;<span class="purple">let</span>
+                    knowledge = <span class="green-text">0</span>;<br>
+
+                    &nbsp;&nbsp;<span class="purple">let</span>
+                    practice = <span class="green-text">0</span>;<br><br>
+
+                    &nbsp;&nbsp;knowledge++;<br>
+                    &nbsp;&nbsp;practice++;<br><br>
+
+                    &nbsp;&nbsp;<span class="purple">return</span>
+                    <span class="green-text">"Professional IT"</span>;<br>
+                    }
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SCHEDULE -->
+    <section class="schedule" id="schedule">
+
+        <div class="section-title">
+            <h2>Ish vaqti</h2>
+            <p>O‘quv markazimiz haftasiga 5 kun faoliyat yuritadi</p>
+        </div>
+
+
+        <div class="schedule-box">
+
+            <div class="schedule-row">
+                <span class="day">Dushanba</span>
+                <span class="time">08:00 — 18:00</span>
+            </div>
+
+            <div class="schedule-row">
+                <span class="day">Seshanba</span>
+                <span class="time">08:00 — 18:00</span>
+            </div>
+
+            <div class="schedule-row">
+                <span class="day">Chorshanba</span>
+                <span class="time">08:00 — 18:00</span>
+            </div>
+
+            <div class="schedule-row">
+                <span class="day">Payshanba</span>
+                <span class="time">08:00 — 18:00</span>
+            </div>
+
+            <div class="schedule-row">
+                <span class="day">Juma</span>
+                <span class="time">08:00 — 18:00</span>
+            </div>
+
+            <div class="schedule-row">
+                <span class="day">Shanba</span>
+                <span class="closed">Dam olish kuni</span>
+            </div>
+
+            <div class="schedule-row">
+                <span class="day">Yakshanba</span>
+                <span class="closed">Dam olish kuni</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+
+        <div class="section-title">
+            <h2>Biz bilan bog‘laning</h2>
+            <p>Kurslar haqida batafsil ma’lumot olish uchun murojaat qiling</p>
+        </div>
+
+
+        <div class="contact-container">
+
+            <div class="contact-info">
+
+                <h3>IT Academy</h3>
+
+                <div class="contact-item">
+                    <strong>📍 Manzil</strong>
+                    Urganch shahri , IT Academy
+                </div>
+
+                <div class="contact-item">
+                    <strong>📞 Telefon</strong>
+                    +998 90 123 45 67
+                </div>
+
+                <div class="contact-item">
+                    <strong>📧 Email</strong>
+                    info@itacademy.uz
+                </div>
+
+                <div class="contact-item">
+                    <strong>🕐 Ish vaqti</strong>
+                    Dushanba — Juma, 08:00 — 18:00
+                </div>
+
+            </div>
+
+
+            <form id="contactForm">
+
+                <input
+                    type="text"
+                    placeholder="Ismingiz"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    placeholder="Telefon raqamingiz"
+                    required
+                >
+
+                <select required>
+                    <option value="">Kursni tanlang</option>
+                    <option>Web Development</option>
+                    <option>Python</option>
+                    <option>UI/UX Design</option>
+                    <option>Sun’iy intellekt</option>
+                    <option>Mobile Development</option>
+                    <option>Cyber Security</option>
+                </select>
+
+                <textarea
+                    placeholder="Xabaringiz..."
+                ></textarea>
+
+                <button type="submit">
+                    Ariza yuborish
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>
+            © 2026 <strong> Urganch shahri IT Academy</strong>.
+            Barcha huquqlar himoyalangan.
+        </p>
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script>
+
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            alert(
+                "Arizangiz muvaffaqiyatli yuborildi! Tez orada siz bilan bog‘lanamiz."
+            );
+
+            form.reset();
+        });
+
+    </script>
+
+</body>
+</html>
